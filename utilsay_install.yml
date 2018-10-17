@@ -21,7 +21,8 @@
     register: javacheck
     ignore_errors: true
 
-  - debug:
+  - name: If javac is there show me the version
+    debug:
       var: javacheck
 
   - name: Download and install JDK 8 release 191
