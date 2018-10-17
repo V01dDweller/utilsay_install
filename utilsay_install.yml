@@ -11,6 +11,11 @@
     - gcc
     - texinfo
   tasks:
+  - name: Fail when Fedora or CentOS not detected
+    fail:
+      msg: 'Sorry, this only works with Fedora and CentOS for now'
+    when: ansible_distribution != "Fedora" and ansible_distribution != "CentOS"
+
   - name: Check for javac
     shell: 'javac -version 2>&1'
     register: javacheck
